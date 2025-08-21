@@ -6,3 +6,4 @@ This repository contains the assignments for the Front End Development Framework
 - **Week 2:** Branching and Merging
 - **Week 3:** Responsive Web Page and Git History Exploration
 - **Week 4:** Implement HTML5 and CSS Positioning with Responsive Design
+- **Week 5:** HTML Form with JavaScript Validation
