@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0;
+        } 
+        
+        .form-container {
+            background: #fff; 
+            padding: 30px 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            width: 400px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 { 
+            text-align: center; 
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 2rem;
+            font-weight: 300;
+        } 
+        
+        .form-group { 
+            margin-bottom: 25px; 
+        } 
+        
+        label { 
+            font-weight: 600; 
+            display: block; 
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.9rem;
+        } 
+        
+        input { 
+            width: 100%; 
+            padding: 12px 15px; 
+            border: 2px solid #e1e5e9; 
+            border-radius: 8px; 
+            outline: none; 
+            transition: all 0.3s ease; 
+            box-sizing: border-box;
+            font-size: 1rem;
+            background: #fafbfc;
+        } 
+        
+        input:focus { 
+            border-color: #667eea; 
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        } 
+        
+        .error { 
+            color: #e74c3c; 
+            font-size: 0.85em; 
+            margin-top: 5px; 
+            display: none;
+            background: #ffeaea;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border-left: 3px solid #e74c3c;
+        } 
+        
+        .success { 
+            color: #27ae60; 
+            font-weight: bold; 
+            margin-top: 20px; 
+            text-align: center; 
+            display: none;
+            background: #eafaf1;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        } 
+        
+        .valid { 
+            border-color: #27ae60 !important; 
+            background: #f8fff9 !important;
+        } 
+        
+        .invalid { 
+            border-color: #e74c3c !important; 
+            background: #fff5f5 !important;
+        } 
+        
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none; 
+            color: white; 
+            border-radius: 8px; 
+            font-size: 1.1em; 
+            cursor: pointer; 
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        } 
+        
+        button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Icon styling for inputs */
+        .form-group {
+            position: relative;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="password"]::placeholder,
+        input[type="tel"]::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* Animation for form container */
+        .form-container {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>✨ Registration</h2>
+        <form id="registrationForm" novalidate>
+            <div class="form-group">
+                <label for="fullName"> Full Name</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                <div class="error" id="fullNameError">Full Name is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="email"> Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                <div class="error" id="emailError">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group">
+                <label for="password"> Password</label>
+                <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" placeholder="Create a strong password">
+                <div class="error" id="passwordError">Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.</div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber"> Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="^\d{10}$" placeholder="1234567890">
+                <div class="error" id="phoneNumberError">Please enter a valid 10-digit phone number.</div>
+            </div>
+            <button type="submit"> Create Account</button>
+        </form>
+        <div class="success" id="successMessage"> Registration successful! Welcome aboard!</div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const fullName = document.getElementById('fullName');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const phoneNumber = document.getElementById('phoneNumber');
+
+        const fullNameError = document.getElementById('fullNameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const phoneNumberError = document.getElementById('phoneNumberError');
+        const successMessage = document.getElementById('successMessage');
+
+        const validateField = (field, errorField, validationFn) => {
+            if (validationFn()) {
+                field.classList.remove('invalid');
+                field.classList.add('valid');
+                errorField.style.display = 'none';
+                return true;
+            } else {
+                field.classList.remove('valid');
+                field.classList.add('invalid');
+                errorField.style.display = 'block';
+                return false;
+            }
+        };
+
+        const isNotEmpty = (value) => value.trim() !== '';
+        const isValidEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
+        const isValidPassword = (password) => /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}/.test(password);
+        const isValidPhone = (phone) => /^\d{10}$/.test(phone);
+
+        fullName.addEventListener('input', () => validateField(fullName, fullNameError, () => isNotEmpty(fullName.value)));
+        email.addEventListener('input', () => validateField(email, emailError, () => isValidEmail(email.value)));
+        password.addEventListener('input', () => validateField(password, passwordError, () => isValidPassword(password.value)));
+        phoneNumber.addEventListener('input', () => validateField(phoneNumber, phoneNumberError, () => isValidPhone(phoneNumber.value)));
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const isFullNameValid = validateField(fullName, fullNameError, () => isNotEmpty(fullName.value));
+            const isEmailValid = validateField(email, emailError, () => isValidEmail(email.value));
+            const isPasswordValid = validateField(password, passwordError, () => isValidPassword(password.value));
+            const isPhoneValid = validateField(phoneNumber, phoneNumberError, () => isValidPhone(phoneNumber.value));
+
+            if (isFullNameValid && isEmailValid && isPasswordValid && isPhoneValid) {
+                successMessage.style.display = 'block';
+                form.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
