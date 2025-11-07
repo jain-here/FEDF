@@ -1,4 +1,7 @@
 # FEDF - Front End Development Frameworks
+
+**Author:** Atharva Jain - 2420030092
+
 This repository contains the assignments for the Front End Development Frameworks course.
 
 ## Week 1: Project Initialization and First Commit

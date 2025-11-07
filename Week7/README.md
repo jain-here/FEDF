@@ -1,5 +1,7 @@
 # Week 7 - Modular JavaScript and Working with JSON (Online Bookstore)
 
+**Author:** Atharva Jain - 2420030092
+
 ## Aim
 Modular JavaScript and Working with JSON (Online Bookstore)
 

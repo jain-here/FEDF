@@ -1,5 +1,7 @@
 # CO2 Skill Week 5 - Implementing Routing Mechanism
 
+**Author:** Atharva Jain - 2420030092
+
 ## Aim
 Implementing Routing Mechanism - ReactJS application that implements a routing mechanism for managing and displaying a student's CGPA details and download as PDF.
 

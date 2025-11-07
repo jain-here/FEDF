@@ -1,5 +1,7 @@
 # Week 8 - To-Do List Application with React Hooks
 
+**Author:** Atharva Jain - 2420030092
+
 ## Aim
 To-Do List Application with React Hooks
 

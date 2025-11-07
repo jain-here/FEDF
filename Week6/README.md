@@ -1,5 +1,7 @@
 # Week 6 - Weather Application
 
+**Author:** Atharva Jain - 2420030092
+
 ## Aim
 To develop a weather application using HTML, CSS, and JavaScript that fetches and displays real-time weather data based on user input, while also utilizing localStorage to save the last searched city.
 

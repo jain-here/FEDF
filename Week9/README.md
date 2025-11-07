@@ -1,5 +1,7 @@
 # Week 9 - Book Explorer with React Router and Props
 
+**Author:** Atharva Jain - 2420030092
+
 ## Aim
 Book Explorer with React Router and Props
 
